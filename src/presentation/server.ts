@@ -8,6 +8,7 @@ import {
   validatorCompiler,
   ZodTypeProvider,
 } from "fastify-type-provider-zod";
+import cors from "@fastify/cors";
 import { signUpRoute } from "./http/auth/sign-up.controller";
 import { createAccountRoute } from "./http/accounts/create-account.controller";
 import { deleteAccountRoute } from "./http/accounts/delete-account.controller";
@@ -31,6 +32,10 @@ import { deleteTransactionRoute } from "./http/transactions/delete-transaction.c
 const app = Fastify({
   logger: true,
 }).withTypeProvider<ZodTypeProvider>();
+
+app.register(cors, {
+  origin: env.CORS_ORIGIN,
+});
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);

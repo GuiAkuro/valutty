@@ -14,3 +14,5 @@ export const db = drizzle(env.DATABASE_URL, {
     ...categoriesSchema,
   },
 });
+
+export type DataBaseConnection = typeof db;

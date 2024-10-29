@@ -5,13 +5,6 @@ export interface SignUpRequestDTO {
   surname: string;
 }
 
-export interface SignUpResponseDTO {
-  id: string;
-  email: string;
-  forename: string;
-  surname: string;
-}
-
 export interface SignUpUseCase {
-  execute: (dto: SignUpRequestDTO) => Promise<SignUpResponseDTO>;
+  execute: (dto: SignUpRequestDTO) => Promise<void>;
 }
