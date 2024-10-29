@@ -11,6 +11,10 @@ export class User {
     this.props.id = crypto.randomUUID();
   }
 
+  get id() {
+    return this.props.id;
+  }
+
   get email() {
     return this.props.email;
   }

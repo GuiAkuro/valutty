@@ -1,7 +1,7 @@
 import { env } from "@/env";
 import jwt from "jsonwebtoken";
 
-export class HashingService {
+export class JwtService {
   public sign(payload: Object) {
     return jwt.sign(payload, env.JWT_SECRET);
   }
