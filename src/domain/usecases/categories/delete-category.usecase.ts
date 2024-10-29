@@ -1,3 +1,3 @@
-export interface DeleteAccountUseCase {
+export interface DeleteCategoryUseCase {
   execute: (id: string) => Promise<void>;
 }
