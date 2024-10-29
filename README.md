@@ -27,6 +27,10 @@ npm run dev
 npm run test
 ```
 
+## Documentation
+
+http://locahost:{PORT}/documentation
+
 ## Author
 
 👤 **Guilherme Oliveira**
