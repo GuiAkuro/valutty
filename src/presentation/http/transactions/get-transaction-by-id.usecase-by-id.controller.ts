@@ -1,25 +1,25 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
 
-export const getAccountByIdRoute: FastifyPluginAsyncZod = async (app) => {
+export const getTransactionByIdRoute: FastifyPluginAsyncZod = async (app) => {
   app.get(
-    "/accounts/:accountId",
+    "/transactions/:transactionId",
     {
       schema: {
-        tags: ["Accounts"],
+        tags: ["Transactions"],
         response: {
           200: z.object({
-            account: z.object({
+            transaction: z.object({
               id: z.string().uuid(),
             }),
           }),
         },
       },
     },
-    async (request) => {
+    async () => {
       return {
-        account: {
-          id: "account",
+        transaction: {
+          id: "id",
         },
       };
     }

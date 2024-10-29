@@ -1,12 +1,12 @@
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
 
-export const requestPasswordResetRoute: FastifyPluginAsyncZod = async (app) => {
-  app.post(
-    "/auth/request-password-reset",
+export const updateAccountRoute: FastifyPluginAsyncZod = async (app) => {
+  app.put(
+    "/accounts/:accountId",
     {
       schema: {
-        tags: ["Auth"],
+        tags: ["Accounts"],
         body: z.object({
           name: z.string(),
         }),
