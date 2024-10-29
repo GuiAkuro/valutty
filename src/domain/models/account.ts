@@ -1,5 +1,5 @@
 interface AccountProps {
-  id: string;
+  id?: string;
   name: string;
   ammount: number;
 }

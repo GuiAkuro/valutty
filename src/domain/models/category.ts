@@ -1,6 +1,6 @@
 interface CategoryProps {
-  id: string;
-  name: number;
+  id?: string;
+  name: string;
 }
 
 export class Category {

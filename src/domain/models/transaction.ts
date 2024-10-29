@@ -1,5 +1,5 @@
 interface TransactionProps {
-  id: string;
+  id?: string;
   value: number;
   date: Date;
   type: "CREDIT" | "DEBT";
