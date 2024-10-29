@@ -53,7 +53,7 @@ http://locahost:{PORT}/documentation
 
 ### 4. Presentation Layer (Web API / REST Interface)
 
-- **Contents**: Controllers, routing, serializers, and response handlers that create a RESTful API for the application. Each route or controller method represents an endpoint (e.g., POST /users or GET /orders/{id}).
+- **Contents**: Controllers, routing, serializers, and response handlers that create a RESTful API for the application. Each route or controller method represents an endpoint (e.g., POST /accounts or GET /transaction/{id}).
 - **Responsibilities**: Exposes the Application layer’s use cases to external clients via HTTP. The API receives HTTP requests, translates them into application use cases, and returns HTTP responses with the appropriate status codes and data.
 - **Dependencies**: Depends on the Application layer, as it calls application use cases and receives data structures or response objects for clients. It follows dependency inversion, ensuring the Web API only depends on the use case interfaces, keeping business rules and core logic shielded.
 
