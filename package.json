@@ -15,5 +15,9 @@
     "tsx": "^4.19.2",
     "typescript": "^5.6.3",
     "vitest": "^2.1.4"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0",
+    "zod": "^3.23.8"
   }
 }
