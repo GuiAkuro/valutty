@@ -5,7 +5,7 @@ const app = Fastify({
   logger: true,
 });
 
-app.get("health-check", (_, reply) => {
+app.get("/health-check", async (_, reply) => {
   reply.send({
     server: "is ok",
   });
