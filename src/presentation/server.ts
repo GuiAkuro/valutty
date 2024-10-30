@@ -28,6 +28,7 @@ import { getTransactionByIdRoute } from "./http/transactions/get-transaction-by-
 import { getAllTransactionsRoute } from "./http/transactions/get-transactions.controller";
 import { updateTransactionsRoute } from "./http/transactions/update.transaction.controller";
 import { deleteTransactionRoute } from "./http/transactions/delete-transaction.controller";
+import { errorHandler } from "./middlewares/error-handler";
 
 const app = Fastify({
   logger: true,
@@ -39,6 +40,7 @@ app.register(cors, {
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
+app.setErrorHandler(errorHandler);
 
 app.register(fastifySwagger, {
   openapi: {
