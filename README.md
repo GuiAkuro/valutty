@@ -57,6 +57,59 @@ http://locahost:{PORT}/documentation
 - **Responsibilities**: Exposes the Application layer’s use cases to external clients via HTTP. The API receives HTTP requests, translates them into application use cases, and returns HTTP responses with the appropriate status codes and data.
 - **Dependencies**: Depends on the Application layer, as it calls application use cases and receives data structures or response objects for clients. It follows dependency inversion, ensuring the Web API only depends on the use case interfaces, keeping business rules and core logic shielded.
 
+## Features
+
+### User Registration
+
+- [x] Allow account creation with name, email, and password.
+- [x] Secure password storage (encryption).
+
+### Authentication and Authorization
+
+- [ ] Implement login with email and password.
+- [ ] Session or JWT-based authorization.
+- [ ] Route authentication to ensure only authenticated users access protected resources.
+
+### Expense Tracking
+
+- [ ] Allow users to create a new expense entry with:
+  - [ ] Amount
+  - [ ] Date
+  - [ ] Description (optional)
+- [ ] Each expense should be associated with the user who created it.
+
+### Expense Categorization
+
+- [ ] Allow users to select a category when registering an expense.
+- [ ] Predefined categories (e.g., "Food," "Transport," "Entertainment").
+- [ ] Allow user-customizable categories.
+
+### Expense Viewing
+
+- [ ] View expenses in a list.
+- [ ] Filter and group expenses by date and category.
+
+### Profile Management
+
+- [ ] Allow profile information updates (name and email).
+
+## Non-Functional Requirements
+
+### Security
+
+- [x] Secure password storage (e.g., bcrypt).
+- [ ] Secure authentication using JWT tokens.
+- [x] Data validation to prevent attacks like SQL Injection and XSS.
+
+### Data Integrity
+
+- [ ] Use database transactions to ensure data consistency.
+
+### Maintenance and Scalability
+
+- [x] Modular structure following best development practices to facilitate maintenance.
+- [x] Clear documentation for code and APIs.
+
 ## Author
 
 👤 **Guilherme Oliveira**
