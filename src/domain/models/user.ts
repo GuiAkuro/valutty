@@ -20,14 +20,14 @@ export class User {
   }
 
   get password() {
-    return this.props.email;
+    return this.props.password;
   }
 
   get forename() {
-    return this.props.email;
+    return this.props.forename;
   }
 
   get surname() {
-    return this.props.email;
+    return this.props.surname;
   }
 }

@@ -3,6 +3,7 @@ import { UsersRepository } from "../users.repository";
 import { DataBaseConnection } from "@/infrastrucutre/database/connection";
 import { users } from "@/infrastrucutre/database/schemas/users";
 import { eq } from "drizzle-orm";
+import { UsersAdapter } from "@/infrastrucutre/adapters/users.adapter";
 
 export class PostgresUsersRepository implements UsersRepository {
   constructor(private db: DataBaseConnection) {}
@@ -20,11 +21,7 @@ export class PostgresUsersRepository implements UsersRepository {
   public async getAll(): Promise<Array<User> | null> {
     const users = await this.db.query.users.findMany();
 
-    if (users.length > 0) {
-      return users.map((user) => new User(user));
-    }
-
-    return null;
+    return UsersAdapter.many(users);
   }
 
   public async findByEmail(email: string): Promise<User | null> {
@@ -32,11 +29,7 @@ export class PostgresUsersRepository implements UsersRepository {
       where: eq(users.email, email),
     });
 
-    if (user) {
-      return new User(user);
-    }
-
-    return null;
+    return UsersAdapter.one(user);
   }
 
   public async findById(id: string): Promise<User | null> {
@@ -44,11 +37,7 @@ export class PostgresUsersRepository implements UsersRepository {
       where: eq(users.id, id),
     });
 
-    if (user) {
-      return new User(user);
-    }
-
-    return null;
+    return UsersAdapter.one(user);
   }
 
   public async delete(user: User): Promise<void> {

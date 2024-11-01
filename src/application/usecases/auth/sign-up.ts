@@ -1,3 +1,5 @@
+import { HttpError } from "@/application/errors/http-error";
+import { StatusCode } from "@/application/errors/status-code";
 import { HashService } from "@/application/services/hash.service";
 import { User } from "@/domain/models/user";
 import {
@@ -16,7 +18,7 @@ export class SignUp implements SignUpUseCase {
     const alreadyExists = await this.usersRepository.findByEmail(dto.email);
 
     if (alreadyExists) {
-      throw Error("user already exists");
+      throw new HttpError(StatusCode.CONFLICT, "user already exists");
     }
 
     const hashedPassword = await this.hashService.hash(dto.password);

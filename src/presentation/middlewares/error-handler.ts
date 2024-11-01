@@ -1,3 +1,4 @@
+import { HttpError } from "@/application/errors/http-error";
 import { FastifyError, FastifyReply, FastifyRequest } from "fastify";
 import {
   hasZodFastifySchemaValidationErrors,
@@ -62,4 +63,14 @@ export function errorHandler(
       },
     });
   }
+
+  if (err instanceof HttpError) {
+    return reply.code(err.statusCode).send({
+      message: err.message,
+    });
+  }
+
+  return reply.code(500).send({
+    message: "unknow internal server error.",
+  });
 }
