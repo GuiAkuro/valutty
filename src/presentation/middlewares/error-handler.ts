@@ -71,6 +71,6 @@ export function errorHandler(
   }
 
   return reply.code(500).send({
-    message: "unknow internal server error.",
+    message: "unknown internal server error.",
   });
 }
