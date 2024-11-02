@@ -5,6 +5,7 @@ const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   CORS_ORIGIN: z.string(),
   JWT_SECRET: z.string(),
+  JWT_EXPIRATION_TIME: z.string(),
 });
 
 export const env = envSchema.parse(process.env);

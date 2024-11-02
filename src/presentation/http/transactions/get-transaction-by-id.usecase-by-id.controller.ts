@@ -1,3 +1,4 @@
+import { jwtAuthentication } from "@/presentation/middlewares/auth";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
 
@@ -5,6 +6,7 @@ export const getTransactionByIdRoute: FastifyPluginAsyncZod = async (app) => {
   app.get(
     "/transactions/:transactionId",
     {
+      onRequest: jwtAuthentication,
       schema: {
         tags: ["Transactions"],
         response: {
