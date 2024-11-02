@@ -12,7 +12,8 @@ export const createTransactionRoute: FastifyPluginAsyncZod = async (app) => {
         body: z.object({
           value: z.number().min(0),
           description: z.string().nullable(),
-          date: z.date(),
+          date: z.string(),
+          type: z.enum(["credit", "debt"]),
           account: z.string().uuid(),
           category: z.string().uuid(),
         }),
