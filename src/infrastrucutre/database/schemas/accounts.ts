@@ -2,14 +2,20 @@ import { relations } from "drizzle-orm";
 import { pgTable, varchar, doublePrecision, uuid } from "drizzle-orm/pg-core";
 import { usersAccounts } from "./usersAccounts";
 import { transactions } from "./transactions";
+import { users } from "./users";
 
 export const accounts = pgTable("accounts", {
   id: uuid().primaryKey(),
   name: varchar({ length: 255 }).notNull().unique(),
-  ammount: doublePrecision().notNull().default(0),
+  amount: doublePrecision().notNull().default(0),
+  owner: uuid().references(() => users.id),
 });
 
-export const usersRelations = relations(accounts, ({ many }) => ({
+export const usersRelations = relations(accounts, ({ many, one }) => ({
+  owner: one(users, {
+    fields: [accounts.owner],
+    references: [users.id],
+  }),
   users: many(usersAccounts),
   transactions: many(transactions),
 }));

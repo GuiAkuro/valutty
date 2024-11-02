@@ -1,5 +1,17 @@
 import { JwtService } from "@/application/services/jwt.service";
+import { User } from "@/domain/models/user";
 import { FastifyReply, FastifyRequest, HookHandlerDoneFunction } from "fastify";
+
+declare module "fastify" {
+  interface FastifyRequest {
+    user: {
+      id: string;
+      email: string;
+      forename: string;
+      surname: string;
+    };
+  }
+}
 
 export function jwtAuthentication(
   request: FastifyRequest,
@@ -7,10 +19,16 @@ export function jwtAuthentication(
   done: HookHandlerDoneFunction
 ) {
   try {
-    const [_, token] = request.headers.authorization?.split(" ");
+    if (!request.headers.authorization) {
+      return reply.code(409).send({
+        message: "you are unauthorized",
+      });
+    }
+
+    const [_, token] = request.headers.authorization.split(" ");
 
     if (!token) {
-      reply.code(409).send({
+      return reply.code(409).send({
         message: "you are unauthorized",
       });
     }
@@ -20,10 +38,17 @@ export function jwtAuthentication(
     const isValidToken = jwtService.verify(token);
 
     if (!isValidToken) {
-      reply.code(409).send({
+      return reply.code(409).send({
         message: "you are unauthorized",
       });
     }
+
+    request.user = {
+      id: isValidToken.id,
+      email: isValidToken.email,
+      forename: isValidToken.forename,
+      surname: isValidToken.surname,
+    };
 
     done();
   } catch {

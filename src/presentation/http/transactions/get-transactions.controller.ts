@@ -1,4 +1,3 @@
-import { JwtService } from "@/application/services/jwt.service";
 import { jwtAuthentication } from "@/presentation/middlewares/auth";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
@@ -21,7 +20,9 @@ export const getAllTransactionsRoute: FastifyPluginAsyncZod = async (app) => {
         },
       },
     },
-    async () => {
+    async (request) => {
+      console.log(request.user);
+
       return { transactions: [] };
     }
   );
