@@ -70,6 +70,8 @@ export function errorHandler(
     });
   }
 
+  console.error(err);
+
   return reply.code(500).send({
     message: "unknown internal server error.",
   });

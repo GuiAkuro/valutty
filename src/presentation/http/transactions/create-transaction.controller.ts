@@ -10,13 +10,17 @@ export const createTransactionRoute: FastifyPluginAsyncZod = async (app) => {
       schema: {
         tags: ["Transactions"],
         body: z.object({
-          name: z.string(),
+          value: z.number().min(0),
+          description: z.string().nullable(),
+          date: z.date(),
+          account: z.string().uuid(),
+          category: z.string().uuid(),
         }),
       },
     },
     async (request) => {
-      const { name } = request.body;
-      return { hello: name };
+      const { description } = request.body;
+      return { hello: description };
     }
   );
 };

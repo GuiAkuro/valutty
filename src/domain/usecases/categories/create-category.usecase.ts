@@ -1,14 +1,8 @@
 export interface CreateCategoryRequestDTO {
   name: string;
-}
-
-export interface CreateCategoryResponseDTO {
-  id: string;
-  name: string;
+  account: string;
 }
 
 export interface CreateCategoryUseCase {
-  execute: (
-    dto: CreateCategoryRequestDTO
-  ) => Promise<CreateCategoryResponseDTO>;
+  execute: (dto: CreateCategoryRequestDTO) => Promise<void>;
 }

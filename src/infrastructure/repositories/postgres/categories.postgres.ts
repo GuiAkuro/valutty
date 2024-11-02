@@ -1,14 +1,18 @@
+import { DataBaseConnection } from "@/infrastructure/database/connection";
 import { CategoriesRepository } from "../categories.repository";
 import { Category } from "@/domain/models/category";
+import { categories } from "@/infrastructure/database/schemas/categories";
 
 export class PostgresCategoriesRepository implements CategoriesRepository {
-  public create(): Promise<Category> {
-    return new Promise((resolve) => {
-      resolve(
-        new Category({
-          name: "Nubank",
-        })
-      );
+  constructor(private db: DataBaseConnection) {}
+
+  public async create(category: Category): Promise<void> {
+    console.log("repository category -> ", category);
+
+    await this.db.insert(categories).values({
+      id: category.id!,
+      name: category.name,
+      account: category.account,
     });
   }
 
@@ -17,6 +21,7 @@ export class PostgresCategoriesRepository implements CategoriesRepository {
       resolve([
         new Category({
           name: "Nubank",
+          account: "",
         }),
       ]);
     });
@@ -27,6 +32,7 @@ export class PostgresCategoriesRepository implements CategoriesRepository {
       resolve(
         new Category({
           name: "Nubank",
+          account: "",
         })
       );
     });
@@ -37,6 +43,7 @@ export class PostgresCategoriesRepository implements CategoriesRepository {
       resolve(
         new Category({
           name: "Nubank",
+          account: "",
         })
       );
     });
@@ -47,6 +54,7 @@ export class PostgresCategoriesRepository implements CategoriesRepository {
       resolve(
         new Category({
           name: "Nubank",
+          account: "",
         })
       );
     });
