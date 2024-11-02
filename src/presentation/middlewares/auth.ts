@@ -1,5 +1,4 @@
 import { JwtService } from "@/application/services/jwt.service";
-import { User } from "@/domain/models/user";
 import { FastifyReply, FastifyRequest, HookHandlerDoneFunction } from "fastify";
 
 declare module "fastify" {
