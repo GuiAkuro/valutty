@@ -7,7 +7,7 @@ import {
   SignInResponseDTO,
   SignInUseCase,
 } from "@/domain/usecases/auth/sign-in.usecase";
-import { UsersRepository } from "@/infrastrucutre/repositories/users.repository";
+import { UsersRepository } from "@/infrastructure/repositories/users.repository";
 
 export class SignIn implements SignInUseCase {
   constructor(

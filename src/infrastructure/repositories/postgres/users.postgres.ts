@@ -1,9 +1,9 @@
 import { User } from "@/domain/models/user";
 import { UsersRepository } from "../users.repository";
-import { DataBaseConnection } from "@/infrastrucutre/database/connection";
-import { users } from "@/infrastrucutre/database/schemas/users";
+import { DataBaseConnection } from "@/infrastructure/database/connection";
+import { users } from "@/infrastructure/database/schemas/users";
 import { eq } from "drizzle-orm";
-import { UsersAdapter } from "@/infrastrucutre/adapters/users.adapter";
+import { UsersAdapter } from "@/infrastructure/adapters/users.adapter";
 
 export class PostgresUsersRepository implements UsersRepository {
   constructor(private db: DataBaseConnection) {}

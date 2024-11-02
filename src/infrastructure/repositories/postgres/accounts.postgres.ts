@@ -1,7 +1,7 @@
 import { Account } from "@/domain/models/account";
 import { AccountsRepository } from "../accounts.repository";
-import { DataBaseConnection } from "@/infrastrucutre/database/connection";
-import { accounts } from "@/infrastrucutre/database/schemas/accounts";
+import { DataBaseConnection } from "@/infrastructure/database/connection";
+import { accounts } from "@/infrastructure/database/schemas/accounts";
 
 export class PostgresAccountsRepository implements AccountsRepository {
   constructor(private db: DataBaseConnection) {}

@@ -1,7 +1,7 @@
 import { HashService } from "@/application/services/hash.service";
 import { SignUp } from "@/application/usecases/auth/sign-up";
-import { db } from "@/infrastrucutre/database/connection";
-import { PostgresUsersRepository } from "@/infrastrucutre/repositories/postgres/users.postgres";
+import { db } from "@/infrastructure/database/connection";
+import { PostgresUsersRepository } from "@/infrastructure/repositories/postgres/users.postgres";
 
 export function makeSignUp() {
   const repository = new PostgresUsersRepository(db);
