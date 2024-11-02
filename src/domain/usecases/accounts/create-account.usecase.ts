@@ -1,15 +1,9 @@
 export interface CreateAccountRequestDTO {
   name: string;
-  ammount: number;
-}
-
-export interface CreateAccountResponseDTO {
-  id: string;
-  email: string;
-  forename: string;
-  surname: string;
+  amount: number;
+  owner: string;
 }
 
 export interface CreateAccountUseCase {
-  execute: (dto: CreateAccountRequestDTO) => Promise<CreateAccountResponseDTO>;
+  execute: (dto: CreateAccountRequestDTO) => Promise<void>;
 }

@@ -32,6 +32,8 @@ export class SignIn implements SignInUseCase {
       throw new HttpError(StatusCode.UNAUTHORIZED, "you are not authorized.");
     }
 
+    console.log("id do usuario se autenticando", user.id);
+
     const accessToken = this.jwtService.sign({
       id: user.id,
       email: user.email,

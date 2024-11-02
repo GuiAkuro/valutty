@@ -1,7 +1,8 @@
 interface AccountProps {
   id?: string;
   name: string;
-  ammount: number;
+  amount: number;
+  owner: string;
 }
 
 export class Account {
@@ -9,11 +10,19 @@ export class Account {
     this.props.id = crypto.randomUUID();
   }
 
+  get id() {
+    return this.props.id;
+  }
+
   get name() {
     return this.props.name;
   }
 
-  get ammount() {
-    return this.props.ammount;
+  get amount() {
+    return this.props.amount;
+  }
+
+  get owner() {
+    return this.props.owner;
   }
 }

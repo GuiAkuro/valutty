@@ -1,15 +1,19 @@
 import { Account } from "@/domain/models/account";
 import { AccountsRepository } from "../accounts.repository";
+import { DataBaseConnection } from "@/infrastrucutre/database/connection";
+import { accounts } from "@/infrastrucutre/database/schemas/accounts";
 
 export class PostgresAccountsRepository implements AccountsRepository {
-  public create(): Promise<Account> {
-    return new Promise((resolve) => {
-      resolve(
-        new Account({
-          ammount: 1000,
-          name: "Nubank",
-        })
-      );
+  constructor(private db: DataBaseConnection) {}
+
+  public async create(account: Account): Promise<void> {
+    console.log("repository account ", account);
+
+    await this.db.insert(accounts).values({
+      id: account.id!,
+      name: account.name,
+      amount: account.amount,
+      owner: account.owner,
     });
   }
 
