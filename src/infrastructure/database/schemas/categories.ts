@@ -6,7 +6,7 @@ import { accounts } from "./accounts";
 export const categories = pgTable("categories", {
   id: uuid().primaryKey(),
   name: varchar({ length: 255 }).notNull().unique(),
-  account: uuid().references(() => accounts.id),
+  account: uuid("account_id").references(() => accounts.id),
 });
 
 export const categoriesRelations = relations(categories, ({ many, one }) => ({

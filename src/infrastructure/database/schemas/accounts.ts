@@ -1,6 +1,5 @@
 import { relations } from "drizzle-orm";
 import { pgTable, varchar, doublePrecision, uuid } from "drizzle-orm/pg-core";
-import { usersAccounts } from "./usersAccounts";
 import { transactions } from "./transactions";
 import { users } from "./users";
 
@@ -16,6 +15,5 @@ export const usersRelations = relations(accounts, ({ many, one }) => ({
     fields: [accounts.owner],
     references: [users.id],
   }),
-  users: many(usersAccounts),
   transactions: many(transactions),
 }));
