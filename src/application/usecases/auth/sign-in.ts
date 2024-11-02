@@ -1,3 +1,5 @@
+import { HttpError } from "@/application/errors/http-error";
+import { StatusCode } from "@/application/errors/status-code";
 import { HashService } from "@/application/services/hash.service";
 import { JwtService } from "@/application/services/jwt.service";
 import {
@@ -18,7 +20,7 @@ export class SignIn implements SignInUseCase {
     const user = await this.usersRepository.findByEmail(dto.email);
 
     if (!user) {
-      throw new Error("user not found");
+      throw new HttpError(StatusCode.UNAUTHORIZED, "you are not authorized.");
     }
 
     const isValidPassword = await this.hashService.compare(
@@ -27,7 +29,7 @@ export class SignIn implements SignInUseCase {
     );
 
     if (!isValidPassword) {
-      throw new Error("invalid password");
+      throw new HttpError(StatusCode.UNAUTHORIZED, "you are not authorized.");
     }
 
     const accessToken = this.jwtService.sign({
