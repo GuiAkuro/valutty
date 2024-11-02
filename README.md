@@ -40,9 +40,9 @@ http://locahost:{PORT}/documentation
 
 ### Authentication and Authorization
 
-- [ ] Implement login with email and password.
-- [ ] Session or JWT-based authorization.
-- [ ] Route authentication to ensure only authenticated users access protected resources.
+- [x] Implement login with email and password.
+- [x] Session or JWT-based authorization.
+- [x] Route authentication to ensure only authenticated users access protected resources.
 
 ### Expense Tracking
 
@@ -72,7 +72,7 @@ http://locahost:{PORT}/documentation
 ### Security
 
 - [x] Secure password storage (e.g., bcrypt).
-- [ ] Secure authentication using JWT tokens.
+- [x] Secure authentication using JWT tokens.
 - [x] Data validation to prevent attacks like SQL Injection and XSS.
 
 ### Data Integrity
