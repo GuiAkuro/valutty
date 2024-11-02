@@ -21,8 +21,9 @@ export class PostgresAccountsRepository implements AccountsRepository {
     return new Promise((resolve) => {
       resolve([
         new Account({
-          ammount: 1000,
+          amount: 1000,
           name: "Nubank",
+          owner: "",
         }),
       ]);
     });
@@ -32,8 +33,9 @@ export class PostgresAccountsRepository implements AccountsRepository {
     return new Promise((resolve) => {
       resolve(
         new Account({
-          ammount: 1000,
+          amount: 1000,
           name: "Nubank",
+          owner: "",
         })
       );
     });
@@ -43,8 +45,9 @@ export class PostgresAccountsRepository implements AccountsRepository {
     return new Promise((resolve) => {
       resolve(
         new Account({
-          ammount: 1000,
+          amount: 1000,
           name: "Nubank",
+          owner: "",
         })
       );
     });
@@ -54,8 +57,9 @@ export class PostgresAccountsRepository implements AccountsRepository {
     return new Promise((resolve) => {
       resolve(
         new Account({
-          ammount: 1000,
+          amount: 1000,
           name: "Nubank",
+          owner: "",
         })
       );
     });
