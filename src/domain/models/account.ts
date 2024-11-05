@@ -8,6 +8,12 @@ interface AccountProps {
 export class Account {
   constructor(private props: AccountProps) {
     this.props.id = crypto.randomUUID();
+
+    if (props.id) {
+      this.props.id = props.id;
+    } else {
+      this.props.id = crypto.randomUUID();
+    }
   }
 
   get id() {

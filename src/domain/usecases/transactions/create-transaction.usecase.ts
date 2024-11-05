@@ -1,17 +1,12 @@
 export interface CreateTransactionRequestDTO {
   value: number;
+  description: string;
   type: "CREDIT" | "DEBT";
-}
-
-export interface CreateTransactionResponseDTO {
-  id: string;
-  value: string;
   date: Date;
-  type: "CREDIT" | "DEBT";
+  account: string;
+  category: string;
 }
 
 export interface CreateTransactionUseCase {
-  execute: (
-    dto: CreateTransactionRequestDTO
-  ) => Promise<CreateTransactionResponseDTO>;
+  execute: (dto: CreateTransactionRequestDTO) => Promise<void>;
 }

@@ -1,3 +1,4 @@
+import { makeCreateTransaction } from "@/presentation/factories/create-transaction.factory";
 import { jwtAuthentication } from "@/presentation/middlewares/auth";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
@@ -19,9 +20,22 @@ export const createTransactionRoute: FastifyPluginAsyncZod = async (app) => {
         }),
       },
     },
-    async (request) => {
-      const { description } = request.body;
-      return { hello: description };
+    async (request, reply) => {
+      const { value, description, date, type, account, category } =
+        request.body;
+
+      const createTransactionUseCase = makeCreateTransaction();
+
+      await createTransactionUseCase.execute({
+        value,
+        description: description ? description : "",
+        date: new Date(date),
+        type,
+        account,
+        category,
+      });
+
+      return reply.status(201).send();
     }
   );
 };
