@@ -46,17 +46,15 @@ http://locahost:{PORT}/documentation
 
 ### Expense Tracking
 
-- [ ] Allow users to create a new expense entry with:
-  - [ ] Amount
-  - [ ] Date
-  - [ ] Description (optional)
-- [ ] Each expense should be associated with the user who created it.
+- [x] Allow users to create a new expense entry with:
+  - [x] Amount
+  - [x] Date
+  - [x] Description (optional)
+- [x] Each expense should be associated with the user who created it.
 
 ### Expense Categorization
 
-- [ ] Allow users to select a category when registering an expense.
-- [ ] Predefined categories (e.g., "Food," "Transport," "Entertainment").
-- [ ] Allow user-customizable categories.
+- [x] Allow user to create categories.
 
 ### Expense Viewing
 
@@ -74,10 +72,6 @@ http://locahost:{PORT}/documentation
 - [x] Secure password storage (e.g., bcrypt).
 - [x] Secure authentication using JWT tokens.
 - [x] Data validation to prevent attacks like SQL Injection and XSS.
-
-### Data Integrity
-
-- [ ] Use database transactions to ensure data consistency.
 
 ### Maintenance and Scalability
 
