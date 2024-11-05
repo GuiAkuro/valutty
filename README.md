@@ -10,9 +10,16 @@
 
 ## Install
 
+install node dependencies:
+
 ```sh
 npm install
+```
+set-up the database:
+
+```sh
 docker compose up -d
+npx drizzle-kit push
 ```
 
 ## Usage
