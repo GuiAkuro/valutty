@@ -11,7 +11,7 @@ export class CreateAccount implements CreateAccountUseCase {
   public async execute(dto: CreateAccountRequestDTO): Promise<void> {
     const newAccount = new Account({
       name: dto.name,
-      amount: 0,
+      amount: dto.amount,
       owner: dto.owner,
     });
 
